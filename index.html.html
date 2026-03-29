@@ -1,0 +1,255 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Syne',sans-serif;background:#050a14;color:#e2e8f0;min-height:100vh}
+.shell{padding:24px}
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;border-bottom:1px solid rgba(99,179,237,0.1);padding-bottom:16px}
+.brand{font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#60a5fa}
+.wf-count{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#10b981;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);padding:5px 12px;border-radius:4px}
+.dept-section{margin-bottom:20px}
+.dept-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.dept-pill{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:3px;border:1px solid}
+.d-hr{background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.3)}
+.d-sales{background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.3)}
+.d-payroll{background:rgba(245,158,11,0.1);color:#fbbf24;border-color:rgba(245,158,11,0.3)}
+.d-ops{background:rgba(16,185,129,0.1);color:#34d399;border-color:rgba(16,185,129,0.3)}
+.d-mkt{background:rgba(236,72,153,0.1);color:#f472b6;border-color:rgba(236,72,153,0.3)}
+.dept-line{flex:1;height:1px;background:rgba(255,255,255,0.04)}
+.wf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.wf-card{background:#0a1628;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:14px 16px;cursor:pointer;transition:all 0.18s;position:relative;overflow:hidden}
+.wf-card:hover{border-color:var(--c);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.wf-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c)}
+.wf-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#475569;margin-bottom:6px}
+.wf-name{font-size:13px;font-weight:600;color:#e2e8f0;margin-bottom:8px;line-height:1.3}
+.wf-trigger{font-size:11px;color:#64748b;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.wf-nodes{display:flex;flex-wrap:wrap;gap:4px}
+.node-chip{font-size:9px;font-family:'IBM Plex Mono',monospace;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:3px;padding:2px 6px;color:#64748b}
+.node-chip.ai{background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.2);color:#a78bfa}
+.node-chip.core{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.15);color:#60a5fa}
+.wf-status{position:absolute;top:12px;right:12px;width:6px;height:6px;border-radius:50%;background:#10b981;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.totals{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
+.total-card{background:#0a1628;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:14px;text-align:center}
+.total-n{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:700;color:#f1f5f9;line-height:1}
+.total-l{font-size:10px;color:#475569;margin-top:4px;text-transform:uppercase;letter-spacing:0.8px}
+.total-s{font-size:11px;margin-top:2px}
+</style>
+
+<div class="shell">
+<div class="top-bar">
+  <div class="brand">GoGlobal AutoPilot — 24 Workflows</div>
+  <div class="wf-count">● ALL SYSTEMS LIVE</div>
+</div>
+
+<div class="totals">
+  <div class="total-card"><div class="total-n">24</div><div class="total-l">Workflows</div><div class="total-s" style="color:#10b981">Production Ready</div></div>
+  <div class="total-card"><div class="total-n">18</div><div class="total-l">Integrations</div><div class="total-s" style="color:#60a5fa">APIs Connected</div></div>
+  <div class="total-card"><div class="total-n">40+</div><div class="total-l">Countries</div><div class="total-s" style="color:#a78bfa">Rule Engine</div></div>
+  <div class="total-card"><div class="total-n">390</div><div class="total-l">Hrs/Month</div><div class="total-s" style="color:#fbbf24">Saved</div></div>
+  <div class="total-card"><div class="total-n">£19k</div><div class="total-l">Monthly ROI</div><div class="total-s" style="color:#f472b6">Net Saving</div></div>
+</div>
+
+<!-- HR -->
+<div class="dept-section">
+  <div class="dept-header"><span class="dept-pill d-hr">HR &amp; People</span><div class="dept-line"></div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#475569">6 workflows</span></div>
+  <div class="wf-grid">
+    <div class="wf-card" style="--c:#a78bfa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF01</div>
+      <div class="wf-name">Employee Onboarding (End-to-End)</div>
+      <div class="wf-trigger">⚡ DocuSign webhook → offer letter signed</div>
+      <div class="wf-nodes"><span class="node-chip core">DocuSign</span><span class="node-chip ai">GPT-4o</span><span class="node-chip core">BambooHR</span><span class="node-chip core">Okta</span><span class="node-chip core">Slack</span><span class="node-chip">Email</span><span class="node-chip">40+ Countries</span></div>
+    </div>
+    <div class="wf-card" style="--c:#a78bfa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF02</div>
+      <div class="wf-name">Right-to-Work Verification</div>
+      <div class="wf-trigger">⚡ BambooHR new employee + daily cron</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o</span><span class="node-chip core">BambooHR</span><span class="node-chip">Email</span><span class="node-chip">Legal Rules Engine</span><span class="node-chip">Wait Node</span></div>
+    </div>
+    <div class="wf-card" style="--c:#a78bfa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF03</div>
+      <div class="wf-name">30 / 60 / 90 Day Check-ins</div>
+      <div class="wf-trigger">⏰ Daily cron → calculates tenure</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o</span><span class="node-chip core">BambooHR</span><span class="node-chip core">Slack</span><span class="node-chip">Sentiment Analysis</span><span class="node-chip">Risk Flagging</span></div>
+    </div>
+    <div class="wf-card" style="--c:#a78bfa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF04</div>
+      <div class="wf-name">Employee Offboarding</div>
+      <div class="wf-trigger">⚡ BambooHR termination event</div>
+      <div class="wf-nodes"><span class="node-chip core">Okta</span><span class="node-chip core">Google WS</span><span class="node-chip core">Notion</span><span class="node-chip core">Slack</span><span class="node-chip">Exit Survey</span><span class="node-chip">Final Payroll</span></div>
+    </div>
+    <div class="wf-card" style="--c:#a78bfa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF19</div>
+      <div class="wf-name">Benefits Enrollment (Global)</div>
+      <div class="wf-trigger">⏰ Probation completion cron</div>
+      <div class="wf-nodes"><span class="node-chip core">BambooHR</span><span class="node-chip">Country Rules</span><span class="node-chip">Email</span><span class="node-chip core">Slack</span><span class="node-chip">Pension/Health/Life</span></div>
+    </div>
+    <div class="wf-card" style="--c:#a78bfa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF20</div>
+      <div class="wf-name">Annual Performance Review Cycle</div>
+      <div class="wf-trigger">⏰ Annual cron → Dec 1st</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o</span><span class="node-chip core">BambooHR</span><span class="node-chip">Self-Assessment</span><span class="node-chip">Manager Review</span><span class="node-chip core">Slack</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SALES -->
+<div class="dept-section">
+  <div class="dept-header"><span class="dept-pill d-sales">Sales &amp; CRM</span><div class="dept-line"></div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#475569">5 workflows</span></div>
+  <div class="wf-grid">
+    <div class="wf-card" style="--c:#60a5fa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF05</div>
+      <div class="wf-name">Lead Capture, Enrichment &amp; AI Scoring</div>
+      <div class="wf-trigger">⚡ Web form / LinkedIn / Email inbound</div>
+      <div class="wf-nodes"><span class="node-chip">Clearbit</span><span class="node-chip ai">GPT-4o Score</span><span class="node-chip core">HubSpot</span><span class="node-chip">0–100 AI Score</span><span class="node-chip">Auto-route</span></div>
+    </div>
+    <div class="wf-card" style="--c:#60a5fa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF06</div>
+      <div class="wf-name">AI Nurture Email Sequences (5-Touch)</div>
+      <div class="wf-trigger">⚡ HubSpot lead stage trigger</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o Write</span><span class="node-chip core">HubSpot</span><span class="node-chip">SendGrid</span><span class="node-chip">Reply Detection</span><span class="node-chip">Wait Nodes</span></div>
+    </div>
+    <div class="wf-card" style="--c:#60a5fa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF07</div>
+      <div class="wf-name">Proposal Auto-Generation &amp; Delivery</div>
+      <div class="wf-trigger">⚡ HubSpot stage → Proposal</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o</span><span class="node-chip">PDF Monkey</span><span class="node-chip core">HubSpot</span><span class="node-chip">Country Pricing</span><span class="node-chip">Email</span></div>
+    </div>
+    <div class="wf-card" style="--c:#60a5fa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF08</div>
+      <div class="wf-name">Contract Send &amp; Closed Won Flow</div>
+      <div class="wf-trigger">⚡ HubSpot Closed Won event</div>
+      <div class="wf-nodes"><span class="node-chip ai">MSA GPT-4o</span><span class="node-chip core">DocuSign</span><span class="node-chip core">HubSpot</span><span class="node-chip core">Slack</span><span class="node-chip">Finance Alert</span></div>
+    </div>
+    <div class="wf-card" style="--c:#60a5fa">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF22</div>
+      <div class="wf-name">Pipeline Health Monitor &amp; AE Coaching</div>
+      <div class="wf-trigger">⏰ Daily 7am cron</div>
+      <div class="wf-nodes"><span class="node-chip core">HubSpot</span><span class="node-chip ai">GPT-4o Coach</span><span class="node-chip">Risk Scoring</span><span class="node-chip core">Slack</span><span class="node-chip">Deal Tagging</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAYROLL -->
+<div class="dept-section">
+  <div class="dept-header"><span class="dept-pill d-payroll">Payroll &amp; Finance</span><div class="dept-line"></div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#475569">3 workflows</span></div>
+  <div class="wf-grid">
+    <div class="wf-card" style="--c:#fbbf24">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF09</div>
+      <div class="wf-name">Global Payroll Calculation Engine</div>
+      <div class="wf-trigger">⏰ Monthly cron → 25th of month</div>
+      <div class="wf-nodes"><span class="node-chip core">BambooHR</span><span class="node-chip">FX Rates API</span><span class="node-chip">Tax Engine</span><span class="node-chip">Wise Transfers</span><span class="node-chip">Payslip PDF</span><span class="node-chip core">Slack Approval</span></div>
+    </div>
+    <div class="wf-card" style="--c:#fbbf24">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF10</div>
+      <div class="wf-name">Compliance Deadline Tracker</div>
+      <div class="wf-trigger">⏰ Daily 8am cron</div>
+      <div class="wf-nodes"><span class="node-chip">40+ Country Deadlines</span><span class="node-chip core">Slack</span><span class="node-chip core">Jira</span><span class="node-chip">1/7/14 Day Alerts</span></div>
+    </div>
+    <div class="wf-card" style="--c:#fbbf24">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF21</div>
+      <div class="wf-name">Payroll Variance &amp; Anomaly Detection</div>
+      <div class="wf-trigger">⏰ Monthly cron → 24th (pre-payroll)</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o Audit</span><span class="node-chip core">BambooHR</span><span class="node-chip">Variance Calc</span><span class="node-chip core">Slack</span><span class="node-chip">Email Report</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- OPS -->
+<div class="dept-section">
+  <div class="dept-header"><span class="dept-pill d-ops">Operations</span><div class="dept-line"></div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#475569">6 workflows</span></div>
+  <div class="wf-grid">
+    <div class="wf-card" style="--c:#34d399">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF11</div>
+      <div class="wf-name">Country Expansion Setup</div>
+      <div class="wf-trigger">⚡ New country approved webhook</div>
+      <div class="wf-nodes"><span class="node-chip ai">Country Brief GPT-4o</span><span class="node-chip core">Notion</span><span class="node-chip core">Jira Epic</span><span class="node-chip">Payroll Init</span><span class="node-chip">Client Email</span></div>
+    </div>
+    <div class="wf-card" style="--c:#34d399">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF12</div>
+      <div class="wf-name">Invoice OCR &amp; Auto-Processing</div>
+      <div class="wf-trigger">⚡ Email inbox monitor (invoices@)</div>
+      <div class="wf-nodes"><span class="node-chip">OCR Space</span><span class="node-chip ai">GPT-4o Parse</span><span class="node-chip">Xero Bill</span><span class="node-chip">Approval Routing</span><span class="node-chip core">Google Drive</span></div>
+    </div>
+    <div class="wf-card" style="--c:#34d399">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF13</div>
+      <div class="wf-name">AI Internal Ticket Routing</div>
+      <div class="wf-trigger">⚡ Slack #help-desk monitor</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o Classify</span><span class="node-chip core">Jira</span><span class="node-chip core">Slack Route</span><span class="node-chip">6 Department Queues</span></div>
+    </div>
+    <div class="wf-card" style="--c:#34d399">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF14</div>
+      <div class="wf-name">Weekly Ops Report (Auto-Generated)</div>
+      <div class="wf-trigger">⏰ Friday 4pm cron</div>
+      <div class="wf-nodes"><span class="node-chip core">BambooHR</span><span class="node-chip core">HubSpot</span><span class="node-chip">Xero</span><span class="node-chip core">Jira</span><span class="node-chip ai">GPT-4o Insights</span><span class="node-chip core">Slack</span></div>
+    </div>
+    <div class="wf-card" style="--c:#34d399">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF18</div>
+      <div class="wf-name">NDA Auto-Generation &amp; Tracking</div>
+      <div class="wf-trigger">⚡ HubSpot proposal stage</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o Legal</span><span class="node-chip core">DocuSign</span><span class="node-chip core">Google Drive</span><span class="node-chip">7-Day Follow-up</span></div>
+    </div>
+    <div class="wf-card" style="--c:#34d399">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF24</div>
+      <div class="wf-name">AI Compliance Q&amp;A (RAG Bot)</div>
+      <div class="wf-trigger">⚡ Slack #compliance-qa monitor</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o RAG</span><span class="node-chip">Knowledge Base</span><span class="node-chip core">Notion Log</span><span class="node-chip core">Slack Answer</span><span class="node-chip">Legal Escalate</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKETING -->
+<div class="dept-section">
+  <div class="dept-header"><span class="dept-pill d-mkt">Marketing</span><div class="dept-line"></div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#475569">4 workflows</span></div>
+  <div class="wf-grid">
+    <div class="wf-card" style="--c:#f472b6">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF15</div>
+      <div class="wf-name">LinkedIn Lead Gen &amp; CRM Sync</div>
+      <div class="wf-trigger">⚡ LinkedIn Lead Gen Form webhook</div>
+      <div class="wf-nodes"><span class="node-chip">Clearbit</span><span class="node-chip core">HubSpot</span><span class="node-chip">Nurture Trigger</span><span class="node-chip core">Slack</span></div>
+    </div>
+    <div class="wf-card" style="--c:#f472b6">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF16</div>
+      <div class="wf-name">Webinar Attendee Follow-up</div>
+      <div class="wf-trigger">⚡ Zoom webinar ended webhook</div>
+      <div class="wf-nodes"><span class="node-chip">Zoom API</span><span class="node-chip ai">GPT-4o Email</span><span class="node-chip core">HubSpot Score</span><span class="node-chip">Attended/No-show</span><span class="node-chip core">Slack Hot Lead</span></div>
+    </div>
+    <div class="wf-card" style="--c:#f472b6">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF17</div>
+      <div class="wf-name">AI Content Calendar (Weekly)</div>
+      <div class="wf-trigger">⏰ Monday 8am cron</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o 5 Posts</span><span class="node-chip">Buffer Schedule</span><span class="node-chip core">Notion</span><span class="node-chip">LinkedIn</span></div>
+    </div>
+    <div class="wf-card" style="--c:#f472b6">
+      <div class="wf-status"></div>
+      <div class="wf-num">WF23</div>
+      <div class="wf-name">Email A/B Test Automation</div>
+      <div class="wf-trigger">⚡ Campaign launch webhook</div>
+      <div class="wf-nodes"><span class="node-chip ai">GPT-4o Variants</span><span class="node-chip">SendGrid</span><span class="node-chip">48h Wait</span><span class="node-chip">Auto Winner</span><span class="node-chip core">Slack Results</span></div>
+    </div>
+  </div>
+</div>
+</div>
